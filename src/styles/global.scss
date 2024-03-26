@@ -1,0 +1,65 @@
+:root {
+  --c-dark: 35, 37, 45;
+  --c-light: 255, 255, 255;
+  --c-theme: 18, 10, 143;
+  --l-max-width: 1440px;
+  --p-section: 20px;
+}
+
+body {
+  color: rgb(var(--c-dark));
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.42;
+}
+
+main {
+  max-width: var(--l-max-width);
+  margin: auto;
+}
+
+h1 {
+  font-size: clamp(24px, 2vw, 32px);
+  font-weight: 400;
+}
+
+h2 {
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 400;
+  margin: 0 0 40px;
+}
+
+h3 {
+  font-size: clamp(16px, 2vw, 18px);
+  font-weight: 400;
+}
+
+a {
+  display: block;
+  white-space: nowrap;
+  width: fit-content;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+button {
+  border: 1.5px solid;
+  cursor: pointer;
+  padding: 15px 40px;
+  text-align: center;
+  white-space: nowrap;
+  width: 100%;
+}
+
+svg {
+  cursor: pointer;
+}
