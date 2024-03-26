@@ -1,0 +1,109 @@
+---
+import { links } from "../stores/useLinks";
+---
+
+<footer id="tab-4">
+  <svg width="160" height="52">
+    <use xlink:href="/src/assets/sprites.svg#logo"></use>
+  </svg>
+
+  <nav>
+    <ul>
+      {
+        links.map((link) => (
+          <li  data-tab={link.tab}>
+            {link.name}
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <nav>
+    <a href="tel:+7 8442 91 11 99">+7 8442 91 11 99</a>
+
+    <p>
+      © 2012 ОАО "Нижневолжскспецстрой"
+      г. Волгоград, ул. Краснополянская, 72Д
+    </p>
+  
+    <a href="mailto:info@nvss34.ru">info@nvss34.ru</a>
+  </nav>
+  
+  <p>© 2024. Все права защищены | политика конфиденциальности</p>
+ 
+</footer>
+
+<style lang="scss">
+  footer {
+    display: grid;
+    grid-template: auto / auto 1fr;
+    gap: 20px;
+    padding: var(--p-section);
+    place-items: center baseline; 
+
+    svg{
+      grid-column: 1 / -1;
+    }
+
+    p{
+      opacity: 0.6;
+    }
+
+    nav {
+      ul {
+        display: grid;
+        gap: 10px;
+
+        li {
+          white-space: nowrap;
+          width: fit-content;
+
+          &.active {
+            border-bottom: 1.5px solid rgb(var(--c-dark));
+          }
+        }
+      }
+
+      &:last-of-type{
+        margin: 0 0 0 auto;
+
+        p{
+          margin: 10px 0 ;
+        }
+
+        a{
+          margin:  0 0 0 auto;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 720px) {
+      grid-template: auto / 1fr;
+
+      nav{
+        &:last-of-type{
+          margin: 0;
+
+          a{
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+</style>
+
+<script>
+  import { scrollToElement } from "../compossables/scrollToElements";
+  
+  const list = document.querySelectorAll('nav > ul > li') as  NodeListOf<HTMLElement>;
+
+  list.forEach((li) => {
+    li.addEventListener("click", (e) => {
+      if (e.target instanceof HTMLElement && e.target.dataset.tab) {
+        scrollToElement(e.target.dataset.tab);
+      }
+    });
+  });
+</script>

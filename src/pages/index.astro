@@ -1,10 +1,12 @@
 ---
+import AboutComponent from "../components/AboutComponent.astro";
+import HeroComponent from "../components/HeroComponent.astro";
+import InsulationComponent from "../components/InsulationComponent.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <section>
-    <h1>Профиль-С</h1>
-    <p>Трубы любого типоразмера г.Волгоград</p>
-  </section>
+  <HeroComponent />
+  <InsulationComponent />
+  <AboutComponent />
 </BaseLayout>

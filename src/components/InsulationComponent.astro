@@ -1,0 +1,190 @@
+---
+const array = [
+  "Битумная грунтовка",
+  "Битумная мастика",
+  "Армирующая обмотка из стеклохолста",
+  "Наружная обертка Крафт-бумага",
+  "Битумная грунтовка",
+  "Битумная мастика",
+  "Армирующая обмотка из стеклохолста",
+  "Битумная мастика",
+  "Армирующая обмотка из стеклохолста",
+  "Битумная мастика",
+  "Наружная обертка Крафт-бумага",
+];
+---
+
+<section id="tab-2">
+  <h2>Изоляция стальных труб</h2>
+
+  <span>
+    <figure></figure>
+  </span>
+
+  <article>
+    <h3>Изоляция усиленного типа</h3>
+
+    <ul>
+      Толщина изоляционого покрытия:
+      <li>Д57 – Д1420 6.0 мм</li>
+    </ul>
+
+    <ul>
+      Состав:
+
+      {
+        array.slice(0, 4).map((el) => (
+          <li>
+            <svg width="16" height="16">
+              <use xlink:href="/src/assets/sprites.svg#box" />
+            </svg>
+
+            {el}
+          </li>
+        ))
+      }
+    </ul>
+  </article>
+
+  <article>
+    <h3>Изоляция весьма усиленного типа</h3>
+
+    <ul>
+      Толщина изоляционого покрытия:
+      <li>Д57 – Д159 7.5 мм</li>
+      <li>Д168 – Д1420 9.0 мм</li>
+    </ul>
+
+    <ul>
+      Состав:
+
+      {
+        array.slice(4, 11).map((el) => (
+          <li>
+            <svg width="16" height="16">
+              <use xlink:href="/src/assets/sprites.svg#box" />
+            </svg>
+
+            {el}
+          </li>
+        ))
+      }
+    </ul>
+  </article>
+
+  <span>
+    <figure></figure>
+  </span>
+
+  <p>
+    Для повышения межпрочности покрытий в качестве армирующего материала
+    применяется стеклохолст марки ВВ-Г-400.
+  </p>
+
+  <p>
+    В состав битумно - атактической мастики входит:<br />
+    Битум БН 70/30 (ГОСТ 6617-76)-95% и атактический полипропилен (ТУ-2211-056-057796653-98)–5
+    %.
+  </p>
+
+  <p>
+    В качестве материала для наружной обертки применяется бумага мешочная (ГОСТ
+    2228-81) или Крафт-бумага.
+  </p>
+</section>
+
+<style lang="scss" scoped>
+  section {
+    display: grid;
+    grid-template: auto / 1fr 1fr;
+    gap: 20px;
+    place-items: center baseline;
+    padding: var(--p-section);
+
+    h2 {
+      grid-column: 1 / -1;
+    }
+
+    p {
+      grid-column: 1 / -1;
+
+      &:first-of-type {
+        margin: 40px 0 0;
+      }
+    }
+
+    span {
+      margin: 0 auto;
+
+      figure {
+        border-radius: 50%;
+        box-shadow:
+          0 0 0 14px rgba(var(--c-dark), 1),
+          0 0 0 16px rgb(var(--c-light)),
+          0 0 0 20px rgba(var(--c-dark), 0.2),
+          0 0 0 22px rgb(var(--c-light)),
+          0 0 0 26px rgba(var(--c-dark), 0.2),
+          0 0 0 28px rgb(var(--c-light)),
+          0 0 0 32px rgba(var(--c-dark), 0.2),
+          0 0 0 34px rgb(var(--c-light)),
+          0 0 0 38px rgba(var(--c-dark), 0.2),
+          0 0 0 40px rgb(var(--c-light)),
+          0 0 0 42px rgb(218, 185, 0);
+        height: 250px;
+        margin: 60px 20px;
+        width: 250px;
+      }
+
+      &:last-of-type {
+        figure {
+          box-shadow:
+            0 0 0 14px rgba(var(--c-dark), 1),
+            0 0 0 16px rgb(var(--c-light)),
+            0 0 0 20px rgba(var(--c-dark), 0.2),
+            0 0 0 22px rgb(var(--c-light)),
+            0 0 0 26px rgba(var(--c-dark), 0.2),
+            0 0 0 28px rgb(var(--c-light)),
+            0 0 0 32px rgba(var(--c-dark), 0.2),
+            0 0 0 34px rgb(var(--c-light)),
+            0 0 0 38px rgba(var(--c-dark), 0.2),
+            0 0 0 40px rgb(var(--c-light)),
+            0 0 0 44px rgba(var(--c-theme), 0.8),
+            0 0 0 46px rgb(var(--c-light)),
+            0 0 0 50px rgba(var(--c-theme), 0.8),
+            0 0 0 52px rgb(var(--c-light)),
+            0 0 0 54px rgb(218, 185, 0);
+        }
+      }
+    }
+
+    article {
+      margin: auto;
+
+      ul {
+        color: rgba(var(--c-dark), 0.6);
+        font-size: 14px;
+        margin: 20px 0 0;
+
+        li {
+          color: rgb(var(--c-dark));
+          margin: 10px 0 0;
+
+          svg {
+            margin: 0 10px 0 0;
+            vertical-align: text-bottom;
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 720px) {
+      grid-template: auto / 1fr;
+
+      span {
+        &:last-of-type {
+          grid-area: 4;
+        }
+      }
+    }
+  }
+</style>

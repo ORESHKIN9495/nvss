@@ -1,0 +1,91 @@
+---
+
+---
+
+<section id="tab-1">
+  <h1>
+    Изоляция труб в заводских условиях с защитным покрытием по ГОСТ 9.602-05
+  </h1>
+
+  <p>
+    На основе битумно-атактической изоляции на весьма усиленного и усиленного
+    типа
+  </p>
+
+  <article>
+    <ul>
+      <li>
+        <svg width="41" height="42">
+          <use xlink:href="/src/assets/sprites.svg#pipes"></use>
+        </svg>
+
+        Трубы от Д57 до Д1420
+      </li>
+
+      <li>
+        <svg width="33" height="38">
+          <use xlink:href="/src/assets/sprites.svg#shield"></use>
+        </svg>
+
+        Изготовление от 3 дней<br />
+        С гарантией сроков
+      </li>
+
+      <li>
+        <svg width="39" height="38">
+          <use xlink:href="/src/assets/sprites.svg#wallet"></use>
+        </svg>
+
+        Скидки до 30%
+      </li>
+
+      <li>
+        <svg width="62" height="38">
+          <use xlink:href="/src/assets/sprites.svg#truck"></use>
+        </svg>
+
+        Доставка по РФ
+      </li>
+    </ul>
+  </article>
+</section>
+
+<style lang="scss">
+  section {
+    display: grid;
+    grid-template: auto 600px / 1fr 1fr;
+    gap: 20px;
+    padding: var(--p-section);
+
+    h1,
+    p {
+      text-transform: uppercase;
+    }
+
+    article {
+      background-color: rgb(var(--c-theme));
+      display: grid;
+      grid-column: 1 / -1;
+
+      ul {
+        color: rgb(var(--c-light));
+        display: grid;
+        grid-template: auto / repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: auto clamp(20px, 2vw, 40px) clamp(20px, 2vw, 40px);
+
+        li {
+          display: grid;
+          grid-template: auto / auto 1fr;
+          gap: 20px;
+          place-items: center baseline;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 720px) {
+      grid-template: auto auto 600px / 1fr;
+    }
+  }
+</style>

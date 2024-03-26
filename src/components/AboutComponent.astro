@@ -1,0 +1,51 @@
+---
+
+---
+
+<section id="tab-3">
+  <article>
+    <h2>О компании</h2>
+
+    <p>
+      Компания ОАО «Нижневолжскспецстрой» осуществляет изоляцию труб в заводских
+      условиях защитным покрытием по ГОСТ 9.602-05 конструкция 7 и 13 на основе
+      битумно – атактической мастики весьма усиленного и усиленного типа.
+    </p>
+
+    <p>
+      Получить консультацию
+      <a href="tel:+7 8442 91 11 99">+7 8442 91 11 99</a>
+    </p>
+  </article>
+
+  <picture></picture>
+</section>
+
+<style lang="scss">
+  section {
+    padding: var(--p-section);
+    display: grid;
+    grid-template: auto / 1fr 1fr;
+    place-items: center;
+    gap: 20px;
+
+    a {
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    p {
+      margin: 20px 0;
+    }
+
+    picture {
+      background-color: rgb(var(--c-theme));
+      min-height: 600px;
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 720px) {
+      grid-template: auto / 1fr;
+    }
+  }
+</style>

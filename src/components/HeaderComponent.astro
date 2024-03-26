@@ -1,0 +1,111 @@
+---
+import { links } from "../stores/useLinks";
+---
+
+<header>
+  <svg width="160" height="52">
+    <use xlink:href="/src/assets/sprites.svg#logo"></use>
+  </svg>
+
+  <svg width="34" height="20" class="show_menu">
+    <use xlink:href="/src/assets/sprites.svg#menu"></use>
+  </svg>
+
+  <nav>
+    <ul>
+      {
+        links.map((link) => (
+          <li class={link.tab} data-tab={link.tab}>
+            {link.name}
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<style lang="scss">
+  header {
+    background-color: rgb(var(--c-light));
+    display: grid;
+    grid-template: auto / auto 1fr;
+    gap: 20px;
+    inset: 0;
+    place-items: center baseline;
+    padding: var(--p-section);
+    position: sticky;
+    z-index: 9;
+
+    svg {
+      &:last-of-type {
+        display: none;
+        margin: 0 0 0 auto;
+      }
+    }
+
+    nav {
+      margin: auto;
+
+      ul {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 40px;
+
+        li {
+          white-space: nowrap;
+          width: fit-content;
+
+          &.active {
+            border-bottom: 1.5px solid rgb(var(--c-dark));
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 720px) {
+      nav {
+        display: none;
+
+        &.show {
+          display: block;
+
+          ul {
+            grid-auto-flow: row;
+            gap: 10px;
+          }
+        }
+      }
+
+      svg {
+        &:last-of-type {
+          display: block;
+        }
+      }
+    }
+  }
+</style>
+
+<script>
+  import { scrollToElement } from "../compossables/scrollToElements";
+
+  const menu = document.querySelector(".show_menu") as SVGSVGElement;
+  const nav = document.querySelector("nav") as HTMLDivElement;
+
+  const list = document.querySelectorAll(
+    "nav > ul > li"
+  ) as NodeListOf<HTMLElement>;
+
+  menu.addEventListener("click", () => {
+    nav.classList.toggle("show");
+  });
+
+  list.forEach((li) => {
+    li.addEventListener("click", (e) => {
+      nav.classList.remove("show");
+
+      if (e.target instanceof HTMLElement && e.target.dataset.tab) {
+        scrollToElement(e.target.dataset.tab);
+      }
+    });
+  });
+</script>

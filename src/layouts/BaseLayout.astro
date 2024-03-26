@@ -1,4 +1,6 @@
 ---
+import FooterComponent from "../components/FooterComponent.astro";
+import HeaderComponent from "../components/HeaderComponent.astro";
 import "../styles/global.scss";
 import "../styles/reset.scss";
 ---
@@ -10,13 +12,25 @@ import "../styles/reset.scss";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Трубы любого типоразмера г.Волгоград | Профиль-С</title>
+    <title>Изоляция труб</title>
   </head>
   <body>
+    <HeaderComponent />
+
     <main>
       <slot />
     </main>
+
+    <FooterComponent />
   </body>
 </html>
 
 <style lang="scss"></style>
+
+<script>
+  import { watch } from "../compossables/scrollToElements";
+
+  window.addEventListener("scroll", () => watch());
+
+  watch();
+</script>
