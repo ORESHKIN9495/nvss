@@ -3,9 +3,7 @@ import { links } from "../stores/useLinks";
 ---
 
 <header>
-  <svg width="160" height="52">
-    <use xlink:href="/src/assets/sprites.svg#logo"></use>
-  </svg>
+  <i>НВСС</i>
 
   <svg width="34" height="20" class="show_menu">
     <use xlink:href="/src/assets/sprites.svg#menu"></use>
@@ -37,10 +35,8 @@ import { links } from "../stores/useLinks";
     z-index: 9;
 
     svg {
-      &:last-of-type {
-        display: none;
-        margin: 0 0 0 auto;
-      }
+      display: none;
+      margin: 0 0 0 auto;
     }
 
     nav {
@@ -52,13 +48,14 @@ import { links } from "../stores/useLinks";
         gap: 40px;
 
         li {
+          cursor: pointer;
+          border-color: transparent;
+          transition: border-color 0.3s ease-in-out;
           white-space: nowrap;
           width: fit-content;
-          transition: border-color 0.3s ease-in-out;
-          border-color: transparent;
 
           &.active {
-            border-bottom: 1.5px solid;
+            border-bottom: 1.5px solid rgb(var(--c-theme));
           }
         }
       }
@@ -79,9 +76,7 @@ import { links } from "../stores/useLinks";
       }
 
       svg {
-        &:last-of-type {
-          display: block;
-        }
+        display: block;
       }
     }
   }

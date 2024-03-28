@@ -3,13 +3,11 @@ import { links } from "../stores/useLinks";
 ---
 
 <footer id="tab-5">
-  <svg width="160" height="52">
-    <use xlink:href="/src/assets/sprites.svg#logo"></use>
-  </svg>
+  <i>НВСС</i>
 
   <nav>
     <ul>
-      {links.map((link) => <li data-tab="{link.tab}">{link.name}</li>)}
+      {links.map((link) => <li data-tab={link.tab}>{link.name}</li>)}
     </ul>
   </nav>
 
@@ -39,7 +37,7 @@ import { links } from "../stores/useLinks";
     padding: var(--p-section);
     place-items: center baseline;
 
-    svg {
+    i {
       grid-column: 1 / -1;
     }
 
@@ -50,13 +48,10 @@ import { links } from "../stores/useLinks";
     nav {
       ul {
         li {
+          cursor: pointer;
           margin: 10px 0;
           white-space: nowrap;
           width: fit-content;
-
-          &.active {
-            border-bottom: 1.5px solid rgb(var(--c-dark));
-          }
         }
       }
 

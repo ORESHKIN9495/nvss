@@ -48,12 +48,20 @@ img {
   width: 100%;
 }
 
+i {
+  color: rgb(var(--c-theme));
+  font-size: 40px;
+  font-weight: 400;
+  height: 33px;
+  line-height: initial;
+}
+
 button {
-  border: 1.5px solid;
+  border: 1.5px solid rgb(var(--c-theme));
+  border-radius: 5px;
   cursor: pointer;
-  padding: 15px 40px;
+  padding: 15px clamp(20px, 2vw, 40px);
   text-align: center;
-  white-space: nowrap;
   width: 100%;
 }
 

@@ -17,64 +17,71 @@ const array = [
 <section id="tab-2">
   <h2>Изоляция стальных труб</h2>
 
-  <span>
-    <figure></figure>
-  </span>
+  <div class="view-container selected">
+    <span>
+      <figure></figure>
+    </span>
 
-  <article>
-    <h3>Изоляция усиленного типа</h3>
+    <article>
+      <h3>Изоляция усиленного типа</h3>
 
-    <ul>
-      Толщина изоляционого покрытия:
-      <li>Д57 – Д1420 6.0 мм</li>
-    </ul>
+      <ul>
+        Толщина изоляционого покрытия:
+        <li>Д57 – Д1420 6.0 мм</li>
+      </ul>
 
-    <ul>
-      Состав:
+      <ul>
+        Состав:
 
-      {
-        array.slice(0, 4).map((el) => (
-          <li>
-            <svg width="16" height="16">
-              <use xlink:href="/src/assets/sprites.svg#box" />
-            </svg>
+        {
+          array.slice(0, 4).map((el) => (
+            <li>
+              <svg width="16" height="16">
+                <use xlink:href="/src/assets/sprites.svg#box" />
+              </svg>
 
-            {el}
-          </li>
-        ))
-      }
-    </ul>
-  </article>
+              {el}
+            </li>
+          ))
+        }
+      </ul>
+    </article>
+  </div>
 
-  <article>
-    <h3>Изоляция весьма усиленного типа</h3>
+  <div class="view-container">
+    <article>
+      <h3>Изоляция весьма усиленного типа</h3>
 
-    <ul>
-      Толщина изоляционого покрытия:
-      <li>Д57 – Д159 7.5 мм</li>
-      <li>Д168 – Д1420 9.0 мм</li>
-    </ul>
+      <ul>
+        Толщина изоляционого покрытия:
+        <li>Д57 – Д159 7.5 мм</li>
+        <li>Д168 – Д1420 9.0 мм</li>
+      </ul>
 
-    <ul>
-      Состав:
+      <ul>
+        Состав:
 
-      {
-        array.slice(4, 11).map((el) => (
-          <li>
-            <svg width="16" height="16">
-              <use xlink:href="/src/assets/sprites.svg#box" />
-            </svg>
+        {
+          array.slice(4, 11).map((el) => (
+            <li>
+              <svg width="16" height="16">
+                <use xlink:href="/src/assets/sprites.svg#box" />
+              </svg>
 
-            {el}
-          </li>
-        ))
-      }
-    </ul>
-  </article>
+              {el}
+            </li>
+          ))
+        }
+      </ul>
+    </article>
 
-  <span>
-    <figure></figure>
-  </span>
+    <span>
+      <figure></figure>
+    </span>
+  </div>
+
+  <button class="button-tab active">Изоляция усиленного типа</button>
+  <button class="button-tab">Изоляция весьма усиленного типа</button>
 
   <p>
     Для повышения межпрочности покрытий в качестве армирующего материала
@@ -98,12 +105,7 @@ const array = [
     display: grid;
     grid-template: auto / 1fr 1fr;
     gap: 20px;
-    place-items: center baseline;
     padding: var(--p-section);
-
-    h2 {
-      grid-column: 1 / -1;
-    }
 
     p {
       grid-column: 1 / -1;
@@ -113,30 +115,29 @@ const array = [
       }
     }
 
-    span {
-      margin: 0 auto;
+    button {
+      cursor: pointer;
 
-      figure {
-        border-radius: 50%;
-        box-shadow:
-          0 0 0 14px rgba(var(--c-dark), 1),
-          0 0 0 16px rgb(var(--c-light)),
-          0 0 0 20px rgba(var(--c-dark), 0.2),
-          0 0 0 22px rgb(var(--c-light)),
-          0 0 0 26px rgba(var(--c-dark), 0.2),
-          0 0 0 28px rgb(var(--c-light)),
-          0 0 0 32px rgba(var(--c-dark), 0.2),
-          0 0 0 34px rgb(var(--c-light)),
-          0 0 0 38px rgba(var(--c-dark), 0.2),
-          0 0 0 40px rgb(var(--c-light)),
-          0 0 0 42px rgb(218, 185, 0);
-        height: 250px;
-        margin: 60px 20px;
-        width: 250px;
+      &.active {
+        background-color: rgb(var(--c-theme));
+        color: rgb(var(--c-light));
+      }
+    }
+
+    div {
+      display: none;
+      grid-template: auto / 1fr 1fr;
+      gap: 20px;
+      place-items: center;
+      grid-column: 1 / -1;
+
+      &.selected {
+        display: grid;
       }
 
-      &:last-of-type {
+      span {
         figure {
+          border-radius: 50%;
           box-shadow:
             0 0 0 14px rgba(var(--c-dark), 1),
             0 0 0 16px rgb(var(--c-light)),
@@ -148,30 +149,50 @@ const array = [
             0 0 0 34px rgb(var(--c-light)),
             0 0 0 38px rgba(var(--c-dark), 0.2),
             0 0 0 40px rgb(var(--c-light)),
-            0 0 0 44px rgba(var(--c-theme), 0.8),
-            0 0 0 46px rgb(var(--c-light)),
-            0 0 0 50px rgba(var(--c-theme), 0.8),
-            0 0 0 52px rgb(var(--c-light)),
-            0 0 0 54px rgb(218, 185, 0);
+            0 0 0 42px rgb(218, 185, 0);
+          height: 250px;
+          margin: 60px 20px;
+          width: 250px;
         }
       }
-    }
 
-    article {
-      margin: auto;
+      &:last-of-type {
+        span {
+          figure {
+            box-shadow:
+              0 0 0 14px rgba(var(--c-dark), 1),
+              0 0 0 16px rgb(var(--c-light)),
+              0 0 0 20px rgba(var(--c-dark), 0.2),
+              0 0 0 22px rgb(var(--c-light)),
+              0 0 0 26px rgba(var(--c-dark), 0.2),
+              0 0 0 28px rgb(var(--c-light)),
+              0 0 0 32px rgba(var(--c-dark), 0.2),
+              0 0 0 34px rgb(var(--c-light)),
+              0 0 0 38px rgba(var(--c-dark), 0.2),
+              0 0 0 40px rgb(var(--c-light)),
+              0 0 0 44px rgba(var(--c-theme), 0.8),
+              0 0 0 46px rgb(var(--c-light)),
+              0 0 0 50px rgba(var(--c-theme), 0.8),
+              0 0 0 52px rgb(var(--c-light)),
+              0 0 0 54px rgb(218, 185, 0);
+          }
+        }
+      }
 
-      ul {
-        color: rgba(var(--c-dark), 0.6);
-        font-size: 14px;
-        margin: 20px 0 0;
+      article {
+        ul {
+          color: rgba(var(--c-dark), 0.6);
+          font-size: 14px;
+          margin: 20px 0 0;
 
-        li {
-          color: rgb(var(--c-dark));
-          margin: 10px 0 0;
+          li {
+            color: rgb(var(--c-dark));
+            margin: 10px 0 0;
 
-          svg {
-            margin: 0 10px 0 0;
-            vertical-align: text-bottom;
+            svg {
+              margin: 0 10px 0 0;
+              vertical-align: text-bottom;
+            }
           }
         }
       }
@@ -180,11 +201,35 @@ const array = [
     @media only screen and (max-width: 720px) {
       grid-template: auto / 1fr;
 
-      span {
+      div {
+        grid-template: auto / 1fr;
+
         &:last-of-type {
-          grid-area: 4;
+          span {
+            order: -1;
+          }
         }
       }
     }
   }
 </style>
+
+<script>
+  const containers = document.querySelectorAll(
+    ".view-container"
+  ) as NodeListOf<HTMLElement>;
+
+  const buttons = document.querySelectorAll(
+    ".button-tab"
+  ) as NodeListOf<HTMLElement>;
+
+  buttons.forEach((el, idx) => {
+    el.addEventListener("click", () => {
+      buttons.forEach((el) => el.classList.remove("active"));
+      el.classList.add("active");
+
+      containers.forEach((el) => el.classList.remove("selected"));
+      containers[idx].classList.add("selected");
+    });
+  });
+</script>
