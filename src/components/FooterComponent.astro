@@ -2,36 +2,33 @@
 import { links } from "../stores/useLinks";
 ---
 
-<footer id="tab-4">
+<footer id="tab-5">
   <svg width="160" height="52">
     <use xlink:href="/src/assets/sprites.svg#logo"></use>
   </svg>
 
   <nav>
     <ul>
-      {
-        links.map((link) => (
-          <li  data-tab={link.tab}>
-            {link.name}
-          </li>
-        ))
-      }
+      {links.map((link) => <li data-tab="{link.tab}">{link.name}</li>)}
     </ul>
   </nav>
 
   <nav>
-    <a href="tel:+7 8442 91 11 99">+7 8442 91 11 99</a>
+    <ul>
+      <li><a href="tel:+7 8442 91 11 99">+7 8442 91 11 99</a></li>
 
-    <p>
-      © 2012 ОАО "Нижневолжскспецстрой"
-      г. Волгоград, ул. Краснополянская, 72Д
-    </p>
-  
-    <a href="mailto:info@nvss34.ru">info@nvss34.ru</a>
+      <li>
+        <p>
+          © 2012 ОАО "Нижневолжскспецстрой" г. Волгоград, ул. Краснополянская,
+          72Д
+        </p>
+      </li>
+
+      <li><a href="mailto:nvss-a@yandex.ru ">nvss-a@yandex.ru</a></li>
+    </ul>
   </nav>
-  
+
   <p>© 2024. Все права защищены | политика конфиденциальности</p>
- 
 </footer>
 
 <style lang="scss">
@@ -40,22 +37,20 @@ import { links } from "../stores/useLinks";
     grid-template: auto / auto 1fr;
     gap: 20px;
     padding: var(--p-section);
-    place-items: center baseline; 
+    place-items: center baseline;
 
-    svg{
+    svg {
       grid-column: 1 / -1;
     }
 
-    p{
+    p {
       opacity: 0.6;
     }
 
     nav {
       ul {
-        display: grid;
-        gap: 10px;
-
         li {
+          margin: 10px 0;
           white-space: nowrap;
           width: fit-content;
 
@@ -65,15 +60,15 @@ import { links } from "../stores/useLinks";
         }
       }
 
-      &:last-of-type{
+      &:last-of-type {
         margin: 0 0 0 auto;
 
-        p{
-          margin: 10px 0 ;
-        }
-
-        a{
-          margin:  0 0 0 auto;
+        ul {
+          li {
+            margin: 10px 0 10px auto;
+            text-align: right;
+            white-space: initial;
+          }
         }
       }
     }
@@ -81,12 +76,15 @@ import { links } from "../stores/useLinks";
     @media only screen and (max-width: 720px) {
       grid-template: auto / 1fr;
 
-      nav{
-        &:last-of-type{
+      nav {
+        &:last-of-type {
           margin: 0;
 
-          a{
-            margin: 0;
+          ul {
+            li {
+              margin: 10px 0;
+              text-align: initial;
+            }
           }
         }
       }
@@ -96,8 +94,10 @@ import { links } from "../stores/useLinks";
 
 <script>
   import { scrollToElement } from "../compossables/scrollToElements";
-  
-  const list = document.querySelectorAll('nav > ul > li') as  NodeListOf<HTMLElement>;
+
+  const list = document.querySelectorAll(
+    "nav > ul > li"
+  ) as NodeListOf<HTMLElement>;
 
   list.forEach((li) => {
     li.addEventListener("click", (e) => {

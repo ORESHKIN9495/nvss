@@ -64,8 +64,19 @@
 
     article {
       background-color: rgb(var(--c-theme));
+      background-image: url("/src/assets/hero.jpg");
+      background-position: center;
+      background-size: cover;
       display: grid;
       grid-column: 1 / -1;
+      position: relative;
+
+      &::before {
+        background-color: rgba(var(--c-theme), 0.4);
+        content: "";
+        inset: 0;
+        position: absolute;
+      }
 
       ul {
         color: rgb(var(--c-light));
@@ -73,6 +84,7 @@
         grid-template: auto / repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
         margin: auto clamp(20px, 2vw, 40px) clamp(20px, 2vw, 40px);
+        z-index: 1;
 
         li {
           display: grid;

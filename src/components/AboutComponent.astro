@@ -2,7 +2,7 @@
 
 ---
 
-<section id="tab-3">
+<section id="tab-4">
   <article>
     <h2>О компании</h2>
 
@@ -18,7 +18,9 @@
     </p>
   </article>
 
-  <picture></picture>
+  <picture>
+    <img src="/src/assets/about.jpg" alt="/" />
+  </picture>
 </section>
 
 <style lang="scss">
@@ -40,8 +42,16 @@
 
     picture {
       background-color: rgb(var(--c-theme));
+      height: 100%;
       min-height: 600px;
-      width: 100%;
+      position: relative;
+
+      &::before {
+        background-color: rgba(var(--c-theme), 0.4);
+        content: "";
+        inset: 0;
+        position: absolute;
+      }
     }
 
     @media only screen and (max-width: 720px) {

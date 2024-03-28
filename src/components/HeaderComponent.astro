@@ -54,15 +54,17 @@ import { links } from "../stores/useLinks";
         li {
           white-space: nowrap;
           width: fit-content;
+          transition: border-color 0.3s ease-in-out;
+          border-color: transparent;
 
           &.active {
-            border-bottom: 1.5px solid rgb(var(--c-dark));
+            border-bottom: 1.5px solid;
           }
         }
       }
     }
 
-    @media only screen and (max-width: 720px) {
+    @media only screen and (max-width: 920px) {
       nav {
         display: none;
 
@@ -101,11 +103,11 @@ import { links } from "../stores/useLinks";
 
   list.forEach((li) => {
     li.addEventListener("click", (e) => {
-      nav.classList.remove("show");
-
       if (e.target instanceof HTMLElement && e.target.dataset.tab) {
         scrollToElement(e.target.dataset.tab);
       }
+
+      nav.classList.remove("show");
     });
   });
 </script>

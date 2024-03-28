@@ -28,11 +28,11 @@ const watch = () => {
   });
 
   if (
-    window.innerHeight + document.documentElement.scrollTop >=
     document.documentElement.offsetHeight -
-      (document.querySelector("#tab-4") as HTMLElement)?.clientHeight
+      document.documentElement.scrollTop <=
+    document.documentElement.clientHeight
   ) {
-    index = 3;
+    index = 4;
   }
 
   lists.forEach((li) => {
