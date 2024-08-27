@@ -37,7 +37,7 @@ const array = [
           array.slice(0, 4).map((el) => (
             <li>
               <svg width="16" height="16">
-                <use xlink:href="/src/assets/sprites.svg#box" />
+                <use xlink:href="./assets/sprites.svg#box" />
               </svg>
 
               {el}
@@ -49,6 +49,10 @@ const array = [
   </div>
 
   <div class="view-container">
+    <span>
+      <figure></figure>
+    </span>
+
     <article>
       <h3>Изоляция весьма усиленного типа</h3>
 
@@ -65,7 +69,7 @@ const array = [
           array.slice(4, 11).map((el) => (
             <li>
               <svg width="16" height="16">
-                <use xlink:href="/src/assets/sprites.svg#box" />
+                <use xlink:href="./assets/sprites.svg#box" />
               </svg>
 
               {el}
@@ -74,10 +78,6 @@ const array = [
         }
       </ul>
     </article>
-
-    <span>
-      <figure></figure>
-    </span>
   </div>
 
   <button class="button-tab active">Изоляция усиленного типа</button>

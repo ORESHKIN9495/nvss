@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "deploy": "astro build && sshpass -f ./rsync_pass rsync --archive --compress --delete ./dist/* u2303608@37.140.192.89:./www/nvss.ru/",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -12,6 +13,7 @@
   "dependencies": {
     "@astrojs/check": "^0.5.10",
     "astro": "^4.5.9",
+    "astro-icon": "^1.1.1",
     "sass": "^1.72.0",
     "typescript": "^5.4.3"
   }
